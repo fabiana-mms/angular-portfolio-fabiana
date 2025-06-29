@@ -1,0 +1,102 @@
+@use '../../../styles.scss' as *;
+
+.header {
+   max-width: $max-width;
+   padding: 20px 0;
+   margin: 20px auto;
+   border: 1px solid rgba($color-text-light, 0.1);
+   border-radius: 10px;
+   position: sticky; //fixa o header na parte superior da página
+   top: 0; //posiciona o header na parte superior da página
+   z-index: 1000; //z-index para garantir que o header fique acima dos outros elementos
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header__content {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.header__logo-link {
+   font-family: $font-family-heading;
+   font-size: 1.8rem;
+   font-weight: 700;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   transition: color 0.3s ease;
+
+   &:hover {
+      color: $color-link-hover;
+   }
+}
+
+.header__nav-list {
+   display: flex;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+.header__nav-item {
+   margin: 0 15px;
+}
+
+.header__nav-link {
+   font-size: 1rem;
+   font-weight: 500;
+   letter-spacing: 0.5px;
+   padding: 5px 0;
+   text-transform: uppercase;
+   transition: color 0.3s ease;
+
+   &:hover {
+      color: $color-link-hover;
+   }
+}
+
+.header__lang-switcher {
+   .header__lang-link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 8px 12px;
+      border: 1px solid rgba($color-text-light, 0.1);
+      border-radius: 10px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+
+      &:hover {
+         background-color: $color-secondary-dark;
+         color: $color-link-hover;
+         border-color: $color-accent;
+      }
+   }
+}
+
+@media (max-width: 768px) {
+   .header__content {
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+   }
+   .header__logo {
+      width: 100%;
+      margin-bottom: 15px;
+   }
+
+   .header__nav {
+      width: 100%;
+      margin-bottom: 15px;
+   }
+
+   .header__nav-list {
+      flex-direction: column;
+      align-items: center;
+   }
+
+   .header__lang-switcher {
+      width: 100%;
+      text-align: center;
+   }
+}

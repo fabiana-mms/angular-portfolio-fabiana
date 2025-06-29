@@ -1,5 +1,12 @@
 import { Component, Input } from '@angular/core';
 
+interface Project {
+  image: string;
+  title: string;
+  technologies: string[];
+  link: string;
+}
+
 @Component({
   selector: 'app-project-card',
   imports: [],
@@ -7,5 +14,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './project-card.component.scss'
 })
 export class ProjectCardComponent {
-  @Input() project: any;
+  //@Input() project!: Project;
 }

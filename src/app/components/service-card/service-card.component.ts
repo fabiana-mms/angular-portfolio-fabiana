@@ -1,5 +1,11 @@
 import { Component, Input } from '@angular/core';
 
+interface Service {
+  icon: string;
+  title: string;
+  description: string;
+}
+
 @Component({
   selector: 'app-service-card',
   imports: [],
@@ -7,5 +13,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './service-card.component.scss'
 })
 export class ServiceCardComponent {
-  @Input() service: any;
+  //@Input() service!: Service;
 }
+
