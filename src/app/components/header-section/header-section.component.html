@@ -4,33 +4,39 @@
       <div class="header__logo">
          <a routerLink="/" class="header__logo-link">FABIANA MONTEIRO</a>
       </div>
+      
+      <button class="header__hamburger" [class.open]="isMenuOpen" (click)="toggleMenu()">
+         <div class="header__hamburger-line"></div>
+         <div class="header__hamburger-line"></div>
+         <div class="header__hamburger-line"></div>
+      </button>
 
-      <nav class="header__nav">
+      <nav class="header__nav" [class.open]="isMenuOpen">
          <ul class="header__nav-list">
             <li class="header__nav-item">
-               <a routerLink="/" fragment="home" class="header__nav-link">HOME</a>
+               <a routerLink="/" fragment="home" class="header__nav-link" (click)="closeMenu()">HOME</a>
             </li>
             <li class="header__nav-item">
-               <a routerLink="/" fragment="sobre" class="header__nav-link">SOBRE</a>
+               <a routerLink="/" fragment="sobre" class="header__nav-link" (click)="closeMenu()">SOBRE</a>
             </li>
             <li class="header__nav-item">
-               <a routerLink="/" fragment="servicos" class="header__nav-link">SERVIÇOS</a>
+               <a routerLink="/" fragment="servicos" class="header__nav-link" (click)="closeMenu()">SERVIÇOS</a>
             </li>
             <li class="header__nav-item">
-               <a routerLink="/" fragment="skills" class="header__nav-link">SKILLS</a>
+               <a routerLink="/" fragment="skills" class="header__nav-link" (click)="closeMenu()">SKILLS</a>
             </li>
             <li class="header__nav-item">
-               <a routerLink="/" fragment="portfolio" class="header__nav-link">PORTFÓLIO</a>
+               <a routerLink="/" fragment="portfolio" class="header__nav-link" (click)="closeMenu()">PORTFÓLIO</a>
             </li>
             <li class="header__nav-item">
-               <a routerLink="/" fragment="contato" class="header__nav-link">CONTATO</a>
+               <a routerLink="/" fragment="contato" class="header__nav-link" (click)="closeMenu()">CONTATO</a>
             </li>
          </ul>
       </nav>
 
-      <div class="header__lang-switcher">
+      <!-- <div class="header__lang-switcher">
          <a href="#" class="header__lang-link">PT/EN</a>
-      </div>
+      </div> -->
 
    </div>
 </header>

@@ -1,4 +1,4 @@
-@use '../../../styles.scss' as *;
+@use '../../../styles.scss' as *; //importa o arquivo de estilos global
 
 .header {
    max-width: $max-width;
@@ -74,29 +74,105 @@
    }
 }
 
-@media (max-width: 768px) {
-   .header__content {
-      flex-wrap: wrap;
-      justify-content: center;
-      text-align: center;
+// INÍCIO DA CONSTRUÇÃO DO MENU HAMBURGER
+.header__hamburger {
+   display: none; //oculta o hamburger em telas maiores
+   flex-direction: column;
+   justify-content: space-around;
+   width: 30px;
+   height: 25px;
+   background: transparent;
+   border: none;
+   cursor: pointer;
+   padding: 0;
+   z-index: 1003;
+
+   &:focus { // Remove o contorno do botão quando focado
+      outline: none; 
    }
-   .header__logo {
-      width: 100%;
-      margin-bottom: 15px;
+}
+
+.header__hamburger-line {
+   width: 100%;
+   height: 3px;
+   background-color: $color-text-light;
+   border-radius: 10px;
+   transition: all 0.3s linear; 
+   position: relative;
+   transform-origin: 2.8px;
+}
+// FIM DA CONSTRUÇÃO DO MENU HAMBURGER
+
+@media (max-width: 768px) {
+   .header {
+      width: $header-width;
+   }
+   
+   .header__logo-link {
+      font-size: 1.4rem;
    }
 
+   // INÍCIO DA CONFIGURAÇÃO DO MENU HAMBURGER
+   .header__hamburger {
+      display: flex;
+   }
+
+   // Animação do hamburger quando aberto
+   .header__hamburger.open {
+      .header__hamburger-line {
+         &:first-child {
+            transform: rotate(45deg);
+         }
+         
+         &:nth-child(2) {
+            opacity: 0;
+         }
+         
+         &:nth-child(3) {
+            transform: rotate(-45deg);
+         }
+      }
+   }
+   // FIM DA CONFIGURAÇÃO DO MENU HAMBURGER
+
    .header__nav {
-      width: 100%;
-      margin-bottom: 15px;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 50%;
+      height: 100vh;
+      transition: right 0.3s ease;
+      z-index: 1001;
+      padding: 80px 20px 20px;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+   }
+
+   .header__nav.open { //
+      right: 0;
    }
 
    .header__nav-list {
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
    }
 
-   .header__lang-switcher {
+   .header__nav-item {
+      margin: 10px 0;
       width: 100%;
-      text-align: center;
    }
+
+   .header__nav-link {
+      display: block;
+      padding: 10px 0;
+      font-size: 1.1rem;
+      border-bottom: 1px solid rgba($color-text-light, 0.1);
+   }
+
+   /*.header__lang-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1002;
+   }*/
+
 }
