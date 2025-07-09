@@ -4,8 +4,7 @@ name: Angular CI Portfolio Fabiana Monteiro
 # Define quando o workflow será executado (neste cas, quando houver push na branch main)
 on:
    push:
-      branches:
-         - main # Pode trocar "main" por outra branch quando necessitar
+      branches: [main] # Pode trocar "main" por outra branch quando necessitar
 
 jobs:
    build:
