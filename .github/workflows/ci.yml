@@ -1,0 +1,31 @@
+# Nome do workflow (aparece na aba "Actions" do GitHub)
+name: Angular CI Portfolio Fabiana Monteiro 
+
+# Define quando o workflow será executado (neste cas, quando houver push na branch main)
+on:
+   push:
+      branches:
+         - main # Pode trocar "main" por outra branch quando necessitar
+
+jobs:
+   build:
+      name: Run Angular CI steps # Nome interno do job
+      runs-on: ubuntu-latest # Define o sistema operacional da máquina virtual (Ubuntu na última versão)
+
+      steps:
+         # Primeiro passo: clonar o repositório para a máquina virtual do GitHub
+         - name: Checkout repository
+           uses: action/checkout@v3
+
+         # Segundo passo: instalar todas as dependências do projeto (npm install)
+         - name: Install dependencies
+           run: npm install
+
+         # Terceiro passo: rodar o lint para verificar a qualidade e padrão do código
+         - name: Lint code
+           run: npm run lint
+
+         # Quarto passo: compilar o projeto em modo de produção
+         - name: Build Angular project
+           run: npm run build -- --configuration=production
+
