@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { HeaderSectionComponent } from './header-section.component';
-import { RouterTestingModule } from '@angular/router/testing';
-import { By } from '@angular/platform-browser';
 
 describe('HeaderSectionComponent', () => {
   let component: HeaderSectionComponent;
@@ -9,20 +8,20 @@ describe('HeaderSectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [HeaderSectionComponent]
-    }).compileComponents();
+      imports: [HeaderSectionComponent]
+    })
+    .compileComponents();
 
     fixture = TestBed.createComponent(HeaderSectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  /*it('deve criar o componente', () => {
+  it('deve criar o componente', () => {
     expect(component).toBeTruthy();
   });
 
-  it('deve alternar o menu ao chamar toggleMenu()', () => {
+  /*it('deve alternar o menu ao chamar toggleMenu()', () => {
     expect(component.isMenuOpen).toBeFalse();
     component.toggleMenu();
     expect(component.isMenuOpen).toBeTrue();
