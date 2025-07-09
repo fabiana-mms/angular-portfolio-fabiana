@@ -14,7 +14,7 @@ jobs:
       steps:
          # Primeiro passo: clonar o repositório para a máquina virtual do GitHub
          - name: Checkout repository
-           uses: action/checkout@v3
+           uses: actions/checkout@v3
 
          # Segundo passo: instalar todas as dependências do projeto (npm install)
          - name: Install dependencies
