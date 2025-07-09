@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:angular-portfolio-fabiana": "node dist/angular-portfolio-fabiana/server/server.mjs"
+    "serve:ssr:angular-portfolio-fabiana": "node dist/angular-portfolio-fabiana/server/server.mjs",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
