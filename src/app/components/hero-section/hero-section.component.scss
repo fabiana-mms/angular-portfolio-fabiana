@@ -1,0 +1,173 @@
+@use 'sass:color';
+@use '../../../styles.scss' as *; //importa o arquivo de estilos global
+
+.hero-section {
+  position: relative; // Para posicionar elementos filhos (como os abstratos)
+  min-height: 80vh; // Define uma altura mínima para a seção (ajuste se necessário)
+  padding: 80px 0; // Espaçamento interno superior e inferior
+  display: flex; // Usa flexbox para centralizar o conteúdo
+  align-items: center; // Alinha os itens verticalmente no centro
+  justify-content: center; // Alinha os itens horizontalmente no centro
+  text-align: center; // Centraliza o texto (para mobile)
+  overflow: hidden;
+}
+
+.hero-section__content {
+  display: flex; // Container para o texto e a imagem
+  align-items: center;
+  justify-content: space-between; // Espaça texto e imagem
+  width: 100%; // Ocupa toda a largura do container pai
+  gap: 40px; // Espaçamento entre os elementos
+  flex-wrap: wrap; // Permite quebra de linha para mobile
+}
+
+.hero-section__text-content {
+  flex: 1; // Permite que o bloco de texto cresça
+  text-align: left; // Alinha o texto à esquerda em desktop
+  max-width: 600px; // Limita a largura do texto
+}
+
+.hero-section__title {
+  font-family: $font-family-heading;
+  font-size: 2.8rem; // Tamanho grande para o título
+  font-weight: 700;
+  color: $color-accent; // Cor roxa vibrante
+  letter-spacing: 2px; // Espaçamento entre letras
+  margin: 0 0 10px 0; // Remove margin e adiciona espaço embaixo
+  text-shadow: 0 0 10px rgba($color-accent, 0.5); // Brilho sutil no texto
+}
+
+.hero-section__description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: $color-text-light;
+  margin-bottom: 30px; // Espaço antes do botão
+  max-width: 450px;
+}
+
+.hero-section__button {
+  background-color: $color-accent;
+  color: $color-primary-dark; // Cor do texto do botão
+  padding: 14px 28px;
+  border: none;
+  border-radius: 50px; // Bordas arredondadas
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba($color-accent, 0.4); // Sombra que brilha
+
+  &:hover {
+    background-color: color.adjust($color-accent, $lightness: -5%);
+    transform: translateY(-3px); // Efeito de levitação
+    box-shadow: 0 5px 20px rgba($color-accent, 0.6); // Sombra mais intensa no hover
+  }
+}
+
+.hero-section__image-wrapper {
+  position: relative;
+  width: 400px; // Largura do wrapper
+  height: 400px; // Altura do wrapper
+  border-radius: 50%; // Deixa o wrapper circular (se quiser)
+  flex-shrink: 0; // Impede que o wrapper encolha em telas menores
+
+  // Elemento abstrato de fundo - Círculo ou linha
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    border: 2px solid $color-accent;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+    // Animação opcional
+    animation: pulse 4s infinite ease-in-out;
+  }
+}
+
+.hero-section__profile-image {
+  width: 100%; // Ocupa 100% do wrapper
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%; // Deixa a imagem redonda
+  border: 4px solid $color-secondary-dark; // Borda ao redor da imagem
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+/* ------------------- Responsividade ------------------- */
+@media (max-width: 992px) {
+  .hero-section__content {
+    flex-direction: column; // Empilha o texto e a imagem
+    text-align: center;
+    align-items: center; // Centraliza os itens horizontalmente
+    gap: 60px; // Aumenta o espaço quando empilhado
+  }
+
+  .hero-section__text-content {
+    text-align: center; // Centraliza o texto
+    margin-left: 0; // Remove possíveis margens laterais
+    margin-right: 0;
+  }
+
+  .hero-section__title {
+    font-size: 2.8rem;
+  }
+
+  .hero-section__description {
+      margin-left: auto;
+      margin-right: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    min-height: auto;
+    padding: 40px 0;
+  }
+
+  .hero-section__title {
+    font-size: 1.8rem;
+  }
+
+  .hero-section__description {
+    font-size: 1rem;
+  }
+  
+  .hero-section__image-wrapper {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-section__title {
+    font-size: 1.4rem;
+  }
+
+  .hero-section__description {
+    font-size: 0.9rem;
+    max-width: 95vw;
+  }
+
+  .hero-section__image-wrapper {
+    width: 200px;
+    height: 200px;
+    margin-left: 0;
+  }
+
+  .hero-section__button {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+}
+
+// Animação para o elemento abstrato
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.2; }
+  50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.4; }
+  100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.2; }
+}

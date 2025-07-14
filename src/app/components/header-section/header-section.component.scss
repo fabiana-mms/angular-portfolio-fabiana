@@ -6,10 +6,10 @@
    margin: 20px auto;
    border: 1px solid rgba($color-text-light, 0.1);
    border-radius: 10px;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
    position: sticky; //fixa o header na parte superior da página
    top: 0; //posiciona o header na parte superior da página
    z-index: 1000; //z-index para garantir que o header fique acima dos outros elementos
-   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .header__content {
@@ -31,50 +31,7 @@
    }
 }
 
-.header__nav-list {
-   display: flex;
-   list-style: none;
-   margin: 0;
-   padding: 0;
-}
-
-.header__nav-item {
-   margin: 0 15px;
-}
-
-.header__nav-link {
-   font-size: 1rem;
-   font-weight: 500;
-   letter-spacing: 0.5px;
-   padding: 5px 0;
-   text-transform: uppercase;
-   transition: color 0.3s ease;
-
-   &:hover {
-      color: $color-link-hover;
-   }
-}
-
-.header__lang-switcher {
-   .header__lang-link {
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      padding: 8px 12px;
-      border: 1px solid rgba($color-text-light, 0.1);
-      border-radius: 10px;
-      text-transform: uppercase;
-      transition: color 0.3s ease;
-
-      &:hover {
-         background-color: $color-secondary-dark;
-         color: $color-link-hover;
-         border-color: $color-accent;
-      }
-   }
-}
-
-// INÍCIO DA CONSTRUÇÃO DO MENU HAMBURGER
+// INÍCIO DO MENU HAMBURGER EM MOBILE
 .header__hamburger {
    display: none; //oculta o hamburger em telas maiores
    flex-direction: column;
@@ -101,24 +58,69 @@
    position: relative;
    transform-origin: 2.8px;
 }
-// FIM DA CONSTRUÇÃO DO MENU HAMBURGER
+// FIM DO MENU HAMBURGER EM MOBILE
 
+.header__nav-list {
+   display: flex;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+.header__nav-item {
+   margin: 0 15px;
+}
+
+.header__nav-link {
+   font-size: 1rem;
+   font-weight: 500;
+   letter-spacing: 0.5px;
+   padding: 5px 0;
+   text-transform: uppercase;
+   transition: color 0.3s ease;
+
+   &:hover {
+      color: $color-link-hover;
+   }
+}
+
+//INÍCIO ALTERNADOR DE IDIOMAS
+/*.header__lang-switcher {
+   .header__lang-link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 8px 12px;
+      border: 1px solid rgba($color-text-light, 0.1);
+      border-radius: 10px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+
+      &:hover {
+         background-color: $color-secondary-dark;
+         color: $color-link-hover;
+         border-color: $color-accent;
+      }
+   }
+}*/
+//FIM ALTERNADOR DE IDIOMAS
+
+/* ------------------- Responsividade ------------------- */
 @media (max-width: 768px) {
    .header {
       width: $header-width;
    }
    
    .header__logo-link {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
    }
 
-   // INÍCIO DA CONFIGURAÇÃO DO MENU HAMBURGER
+   // INÍCIO DO MENU HAMBURGER
    .header__hamburger {
       display: flex;
    }
 
-   // Animação do hamburger quando aberto
-   .header__hamburger.open {
+   .header__hamburger.open { // Animação do hamburger quando aberto
       .header__hamburger-line {
          &:first-child {
             transform: rotate(45deg);
@@ -133,7 +135,7 @@
          }
       }
    }
-   // FIM DA CONFIGURAÇÃO DO MENU HAMBURGER
+   // FIM DO MENU HAMBURGER
 
    .header__nav {
       position: fixed;
@@ -147,7 +149,7 @@
       box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
    }
 
-   .header__nav.open { //
+   .header__nav.open { //Quando o menu hamburger está aberto
       right: 0;
    }
 
@@ -168,11 +170,12 @@
       border-bottom: 1px solid rgba($color-text-light, 0.1);
    }
 
+   //INÍCIO ALTERNADOR DE IDIOMAS
    /*.header__lang-switcher {
       position: fixed;
       top: 20px;
       right: 20px;
       z-index: 1002;
    }*/
-
+   //FIM ALTERNADOR DE IDIOMAS
 }
